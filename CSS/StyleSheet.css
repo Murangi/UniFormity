@@ -10,6 +10,15 @@ h1, h2, h3, .display-5, .fw-bold {
     font-family: 'Poppins', sans-serif;
     transition: color 0.3s ease;
 }
+/*Hero Section*/
+#heroCarousel img {
+    height: 100%;
+    object-fit: cover;
+}
+.card {
+    max-height: 450px;
+}
+
 
 /* NAVIGATION STYLING */
 .nav-link {
@@ -175,4 +184,32 @@ h1, h2, h3, .display-5, .fw-bold {
     .card-cover h3 {
         font-size: 1.1rem;
     }
+}
+
+
+
+
+
+
+/*Frequently Asked Questions*/
+body {
+    background-color: #FFFDF8;
+    font-family: 'Roboto', sans-serif;
+    color: #2D3748;
+}
+
+h1 {
+    color: #5A67D8;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.accordion-button {
+    background-color: #f6f6f6;
+    font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #5A67D8;
+    background-color: #e2e8f0;
 }

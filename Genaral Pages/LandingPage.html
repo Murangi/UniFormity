@@ -12,10 +12,10 @@
 <body>
 
 <!-- Header (Navigation Bar) -->
-<div class="container-fluid">
+<div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <div class="col-md-3 mb-2 mb-md-0">
-            <h1 class="text-uppercase fw-bold">UniFormity</h1>
+            <h1 class="pb-2">UniFormity</h1>
         </div>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="" class="nav-link px-2 link-secondary">Home</a></li>
@@ -35,11 +35,28 @@
 <!-- Hero Section -->
 <div class="container px-4 py-5">
     <div class="row align-items-center g-5 py-5">
+        <!-- Carousel Card -->
         <div class="col-lg-6 order-lg-2">
-            <img src="../Images/Textbooks.jpg" class="d-block mx-auto img-fluid" alt="Textbooks" width="700" height="500" loading="lazy">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="2500">
+                            <img src="../Images/Textbooks.jpg" class="d-block w-100" alt="Textbooks">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2500">
+                            <img src="../Images/SchoolUniform.jpg" class="d-block w-100" alt="School Uniform">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2500">
+                            <img src="../Images/Stationary.jpg" class="d-block w-100" alt="Stationary">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Text Content -->
         <div class="col-lg-6 order-lg-1">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3 hero-title">From One Desk to Another</h1>
+            <h1 class="pb-2 border-bottom">From One Desk to Another</h1>
             <p class="lead hero-description">Connecting families through quality, second-hand school essentials. Buy, sell, and give school uniforms and materials a second chance. Affordable, sustainable, and just a few clicks away.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start hero-buttons">
                 <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Purchase Item</button>
@@ -48,6 +65,7 @@
         </div>
     </div>
 </div>
+
 
 
 <!-- Benefits Section -->
@@ -85,7 +103,7 @@
 <section class="about-section container px-4 py-5">
     <div class="row g-5 align-items-center">
         <div class="col-lg-6">
-            <h2 class="fw-bold mb-3">About UniFormity</h2>
+            <h2 class="pb-2 border-bottom">About UniFormity</h2>
             <p class="text-muted fs-6">
                 At <strong>UniFormity</strong>, we're passionate about sustainability and affordability.
                 Our mission is to connect families through the exchange of second-hand school essentials—
@@ -98,10 +116,11 @@
             </p>
         </div>
         <div class="col-lg-6">
-            <img src="../Images/about.jpg" class="img-fluid rounded-4 shadow-sm" alt="About UniFormity">
+            <img src="../Images/Community.jpg" class="img-fluid rounded-4 shadow-sm" alt="About UniFormity" style="max-height: 520px; object-fit: cover; width: 100%;">
         </div>
     </div>
 </section>
+
 
 
 <!--How Uniformity Works-->
@@ -147,16 +166,16 @@
     </div>
 </div>
 
-<!-- Featured Listings Section -->
+
 <!-- Featured Listings Section -->
 <section class="container my-5">
-    <div class="text-center mb-4">
-        <h2 class="fw-bold">Featured Listings</h2>
+    <div >
+        <h2 class="pb-2 border-bottom">Featured Listings</h2>
         <p class="text-muted">Explore some of our highlighted second-hand items</p>
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-12 col-md-10">
+        <div class="col-12 col-md-12">
             <div id="carouselExampleCaptions" class="carousel slide shadow rounded-4 overflow-hidden" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -213,9 +232,8 @@
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Listings</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+            <li class="nav-item"><a href="./FAQPage.html" class="nav-link px-2 text-body-secondary">FAQs</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
         </ul>
         <p class="text-center text-body-secondary">© 2025 UniFormity, Inc</p>
