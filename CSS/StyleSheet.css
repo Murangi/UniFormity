@@ -192,17 +192,6 @@ h1, h2, h3, .display-5, .fw-bold {
 
 
 /*Frequently Asked Questions*/
-body {
-    background-color: #FFFDF8;
-    font-family: 'Roboto', sans-serif;
-    color: #2D3748;
-}
-
-h1 {
-    color: #5A67D8;
-    font-weight: bold;
-    margin-bottom: 2rem;
-}
 
 .accordion-button {
     background-color: #f6f6f6;
@@ -212,4 +201,30 @@ h1 {
 .accordion-button:not(.collapsed) {
     color: #5A67D8;
     background-color: #e2e8f0;
+}
+
+.accordian-item {
+
+}
+
+.accordion-collapse {
+
+}
+
+.accordion-header {
+    margin: 1em;
+    border-radius: 15px;
+    font-size: 1.2rem;
+}
+
+.accordion-button {
+    border: none;
+
+}
+
+.textcard {
+    border: black solid 3px;
+    border-radius: 15px;
+    padding: 1em;
+    margin: 1em;
 }
