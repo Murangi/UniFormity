@@ -188,9 +188,6 @@ h1, h2, h3, .display-5, .fw-bold {
 
 
 
-
-
-
 /*Frequently Asked Questions*/
 
 .wrapper {
@@ -245,6 +242,7 @@ h1, h2, h3, .display-5, .fw-bold {
 
 .faq {
     border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
     margin: 10px 0;
 }
 
@@ -253,10 +251,11 @@ h1, h2, h3, .display-5, .fw-bold {
 }
 
 
-
 .panel p {
     color: rgba(0,0,0,0.6);
     font-size: 1.2rem;
     line-height: 1.4;
 }
+
+/*Contact Us Page*/
 

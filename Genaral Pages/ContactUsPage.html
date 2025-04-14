@@ -2,9 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Contact Us</title>
+
+    <link rel="stylesheet" href="../CSS/StyleSheet.css" type="text/css" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
 <body>
+
+<div class="container my-5 p-4 rounded shadow" style="background-color: #f9f9f9;">
+    <div class="text-center mb-4">
+        <h1>Contact Us</h1>
+        <hr class="w-25 mx-auto">
+    </div>
+
+    <div class="row">
+        <!-- Contact Form -->
+        <div class="col-md-6 mb-4">
+            <h3 class="mb-3">Send Us a Message</h3>
+            <hr>
+            <form action="ContactUsPage.html" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Your full name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-6">
+            <h3 class="mb-3">Our Contact Information</h3>
+            <hr>
+            <p><strong>Phone:</strong> +27 11 350 7777</p>
+            <p><strong>Email:</strong> UniFormity@gmail.com</p>
+            <p><strong>Address:</strong> 44 Glen Austin, Midrand, Johannesburg</p>
+
+            <div class="mt-4">
+                <h3>Business Hours</h3>
+                <hr>
+                <p>Mon - Fri: 9:00 AM - 5:00 PM</p>
+                <p>Sat - Sun: Closed</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 
 </body>
 </html>
