@@ -311,3 +311,28 @@ input, textarea {
     flex-direction: column;
     justify-content: space-between;
 }
+
+
+/*ItemDetailPage*/
+
+/* Optional: Customize image sizing */
+.card-img-top {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Adjust button hover for pop */
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Optional: Adjust spacing on smaller screens */
+@media (max-width: 768px) {
+    .row .col-md-6 {
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
