@@ -336,3 +336,18 @@ input, textarea {
         width: 100%;
     }
 }
+
+
+/*Search Results Page*/
+.card {
+    border-radius: 1rem;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+h2 {
+    color: #2d2d2d;
+}

@@ -1,10 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Manage Listings | Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background for content */
+        }
+
+        .page-header {
+            padding: 2rem;
+            background-image: url('../Images/ManageListingsPageImage.jpg'); /* Only header background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1,
+        .page-header p {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Make text readable over image */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-top: 2rem;
+        }
+
+        .listing-card {
+            margin-bottom: 1.5rem;
+            background-color: white;
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .action-buttons button {
+            margin-right: 0.5rem;
+        }
+    </style>
 </head>
 <body>
 
+<div class="page-header">
+    <h1>Manage Listings</h1>
+    <p class="lead">Review, edit or remove listings submitted by users</p>
+</div>
+
+<div class="container">
+    <!-- Example Listing Card -->
+    <div class="card listing-card p-3">
+        <div class="card-body">
+            <h5 class="card-title">School Blazer - Size M</h5>
+            <p class="card-text">
+                Listed by: <strong>user@example.com</strong><br/>
+                Price: R250<br/>
+                Description: Excellent condition, navy blue blazer from Ridgeview High.
+            </p>
+            <div class="action-buttons">
+                <button class="btn btn-success btn-sm">Approve</button>
+                <button class="btn btn-primary btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- More listing cards can be added here -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

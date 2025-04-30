@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Login | UniFormity</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .half-page {
+            display: flex;
+            height: 100vh;
+        }
+
+        .admin-image {
+            background-image: url('../Images/AdminPageImage.jpg'); /* Replace with your own admin image path */
+            background-size: cover;
+            background-position: center;
+            flex: 1;
+        }
+
+        .admin-form-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .admin-form {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-title {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
+<div class="half-page">
+    <!-- Left: Admin Image -->
+    <div class="admin-image"></div>
+
+    <!-- Right: Admin Login Form -->
+    <div class="admin-form-container">
+        <form class="admin-form shadow p-4 rounded bg-white" method="post" action="admin-login.php">
+            <h2 class="form-title">Admin Portal</h2>
+
+            <div class="mb-3">
+                <label for="adminEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="adminEmail" name="adminEmail" placeholder="admin@example.com" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="adminPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="adminPassword" name="adminPassword" required />
+            </div>
+
+            <a href="./AdminDashboardPage.html" class="btn btn-primary w-100">Login</a>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
