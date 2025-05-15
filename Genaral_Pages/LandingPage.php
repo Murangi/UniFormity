@@ -5,7 +5,7 @@
     <title>Uniformity</title>
     <link rel="stylesheet" href="../CSS/StyleSheet.css" type="text/css">
 
-<!--    Testing-->
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -24,10 +24,10 @@
             <li><a href="./BrowseListingsPage.html" class="nav-link px-2">Browse Listings</a></li>
         </ul>
         <div class="col-md-3 text-end">
-            <a href="../Authentication%20Pages/LoginPage.html">
+            <a href="../Authentication_Pages/LoginPage.html">
                 <button type="button" class="btn btn-outline-primary me-2">Login</button>
             </a>
-            <a href="../Authentication%20Pages/RegisterPage.html">
+            <a href="../Authentication_Pages/RegisterPage.html">
                 <button type="button" class="btn btn-primary">Sign-up</button>
             </a>
         </div>
