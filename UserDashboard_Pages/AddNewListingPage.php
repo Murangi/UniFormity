@@ -17,22 +17,34 @@
       // Handle file upload
       $image_path = "";
       if ($_FILES['image']['error'] == 0) {
-          $target_dir = "uploads/";
-          $image_path = $target_dir . basename($_FILES["image"]["name"]);
-          move_uploaded_file($_FILES["image"]["tmp_name"], $image_path);
+          $target_dir = "/uploads/";
+          $filename = uniqid() . '_' . basename($_FILES["image"]["name"]);
+          $image_path = $target_dir . $filename;
+          $full_path = $_SERVER['DOCUMENT_ROOT'] . $image_path;
+          if (!is_dir($_SERVER['DOCUMENT_ROOT'] . $target_dir)) {
+              mkdir($_SERVER['DOCUMENT_ROOT'] . $target_dir, 0777, true);
+          }
+          move_uploaded_file($_FILES["image"]["tmp_name"], $full_path);
       }
 
-      // Insert listing  Product_id	title	description	category	price	ItemCondition	school	image_path	user_id	created_at
-      $sql = "INSERT INTO listings (title, description, category, price, ItemCondition, school, image_path, user_id, created_at)
-              VALUES ($title, $description, $category, $price, $ItemCondition, $school, $image_path, $user_id, $DateLising)";
+      // Insert listing  Product_id	title	 description	category	price	 ItemCondition	school	image_path	user_id	 created_at
+      // $sql = "INSERT INTO listings (title, description, category, price, ItemCondition, school, image_path, user_id, created_at)
+      //         VALUES ($title, $description, $category, $price, $ItemCondition, $school, $image_path, $user_id, $DateLising)";
 
-      if (mysqli_query($conn, $sql)) {
+      // Use prepared statement
+      $stmt = $conn->prepare("INSERT INTO listings (title, description, category, price, ItemCondition, school, image_path, user_id, created_at)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+      $stmt->bind_param("sssdsssis", $title, $description, $category, $price, $ItemCondition, $school, $image_path, $user_id, $DateLising);
+
+      if ($stmt->execute()) {
             //echo "<script>alert('Upload successful!');</script>";
             header("Location: ./MyListingsPage.php");
             exit;
-        } else {
-            echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
-        }
+      } else {
+            echo "<script>alert('Error: " . $stmt->error . "');</script>";
+      }
+
+      $stmt->close();
     }
   
 ?>
@@ -175,7 +187,7 @@
       </div>
 
       <!-- Hidden User ID -->
-      <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" />
+      <!-- <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" /> -->
  
       <!-- Submit -->
       <button type="submit" name="submit" class="btn btn-primary btn-custom" >Add Listing</button>

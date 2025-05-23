@@ -21,14 +21,14 @@
         </div>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="./BrowseListingsPage.html" class="nav-link px-2">Browse Listings</a></li>
+            <li><a href="./BrowseListingsPage.php" class="nav-link px-2">Browse Listings</a></li>
         </ul>
         <div class="col-md-3 text-end">
-            <a href="../Authentication_Pages/LoginPage.html">
+            <a href="../Authentication_Pages/LoginPage.php">
                 <button type="button" class="btn btn-outline-primary me-2">Login</button>
             </a>
-            <a href="../Authentication_Pages/RegisterPage.html">
-                <button type="button" class="btn btn-primary">Sign-up</button>
+            <a href="../Authentication_Pages/RegisterPage.php">
+                <button type="button" class="btn btn-primary">Register</button>
             </a>
         </div>
     </header>
@@ -61,8 +61,8 @@
             <h1 class="pb-2 border-bottom">From One Desk to Another</h1>
             <p class="lead hero-description">Connecting families through quality, second-hand school essentials. Buy, sell, and give school uniforms and materials a second chance. Affordable, sustainable, and just a few clicks away.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start hero-buttons">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Purchase Item</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Sell Item</button>
+                <a href="./BrowseListingsPage.php" class="btn btn-primary btn-lg px-4 me-md-2"> Purchase Item</a>
+                <a href="../Authentication_Pages/LoginPage.php" class="btn btn-primary btn-lg px-4 me-md-2"> Sell Item</a>
             </div>
         </div>
     </div>

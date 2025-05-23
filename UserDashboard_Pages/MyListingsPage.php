@@ -54,32 +54,69 @@
     <div class="listings-container">
         <h2 class="listings-title">My Listings</h2>
 
-        <!-- Example listing 1 -->
-        <div class="card listing-card">
-            <div class="card-body">
-                <h5 class="card-title">Blue School Blazer</h5>
-                <p class="card-text">Size 34, great condition. Worn only for one year.</p>
-                <p class="text-muted">Price: R150</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Edit</a>
-                <a href="#" class="btn btn-sm btn-outline-danger">Delete</a>
-            </div>
-        </div>
+        <?php
+            session_start();
+            require_once '../Authentication_Pages/config.php';
 
-        <!-- Example listing 2 -->
-        <div class="card listing-card">
-            <div class="card-body">
-                <h5 class="card-title">Grade 11 Math Textbook</h5>
-                <p class="card-text">CAPS-aligned, no markings inside. Used in 2023.</p>
-                <p class="text-muted">Price: R80</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Edit</a>
-                <a href="#" class="btn btn-sm btn-outline-danger">Delete</a>
-            </div>
-        </div>
+            if (!isset($_SESSION['user_id'])) {
+                echo "User not logged in.";
+                exit;
+            }
 
-        <!-- Add more listings dynamically as needed -->
+            $user_id = $_SESSION['user_id'];
+
+            // Prepare and execute the SQL statement
+            $stmt = $conn->prepare("SELECT * FROM listings WHERE user_id = ? ORDER BY created_at DESC");
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            // Check if any listings exist
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    // Echo each listing in card format
+                    echo '
+                    <div class="card listing-card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">' . htmlspecialchars($row['title']) . '</h5>
+                            <p class="card-text">' . htmlspecialchars($row['description']) . '</p>
+                            <p class="text-muted">Price: R' . htmlspecialchars($row['price']) . '</p>
+                            <form method="POST" action="MyListingsPage.php" onsubmit="return confirm(\'Are you sure you want to delete this listing?\');" style="display:inline;">
+                                <input type="hidden" name="listing_id" value="' . intval($row['Product_id']) . '">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>';
+                }
+            } else {
+                echo "<p>No listings found.</p>";
+            }
+
+            $stmt->close();
+        ?>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+<?php
+    // Handle deletion of listings
+    if(isset($_POST['listing_id'])) {
+        $listing_id = $_POST['listing_id'];
+
+        $statement = $conn->prepare("DELETE FROM listings WHERE Product_id = ?");
+        $statement->bind_param("i", $listing_id);
+
+        if ($statement->execute()) {
+            echo "<script>alert('Listing deleted successfully.');</script>";
+            echo "<script>window.location.href = 'MyListingsPage.php';</script>";
+        } else {
+            echo "<script>alert('Error deleting listing.');</script>";
+        }
+
+        $statement->close();
+        $conn->close();
+    }
+?>
