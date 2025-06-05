@@ -57,6 +57,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            background-color: #EAEFEF;
         }
 
         .half-page {
@@ -78,17 +79,39 @@
             justify-content: center;
             align-items: center;
             padding: 2rem;
+            background-color: #EAEFEF;
         }
 
         .register-form {
             width: 100%;
             max-width: 450px;
+            background-color: #B8CFCE;
+            border: 1px solid #7F8CAA;
         }
 
         .form-title {
             font-weight: bold;
             margin-bottom: 1rem;
             text-align: center;
+            color: #333446;
+        }
+
+        .btn-primary {
+            background-color: #333446;
+            border-color: #333446;
+        }
+        .btn-primary:hover {
+            background-color: #7F8CAA;
+            border-color: #7F8CAA;
+        }
+        a {
+            color: #333446;
+        }
+        a:hover {
+            color: #7F8CAA;
+        }
+        .form-label {
+            color: #333446;
         }
     </style>
 </head>
@@ -128,7 +151,7 @@
                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
             </div>
 
-            <button type="submit" class="btn btn-success w-100">Register</button>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
             <p class="mt-3 text-center small">
                 Already have an account? <a href="./LoginPage.php">Login here</a>
             </p>

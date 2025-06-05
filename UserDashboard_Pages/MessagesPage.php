@@ -1,3 +1,61 @@
+<?php
+session_start();
+require_once '../Authentication_Pages/config.php';
+
+// Redirect to login if user is not authenticated
+if (!isset($_SESSION['email'])) {
+    header('Location: login.php');
+    exit;
+}
+
+// Validate form data
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $sender_email = $_SESSION['email'];
+    $recipient_email = $_POST['recipient'];
+    $subject = $_POST['subject'];
+    $message_body = $_POST['message'];
+
+    // Basic validation
+    if (empty($recipient_email) || empty($subject) || empty($message_body)) {
+        $_SESSION['message_error'] = "All fields are required.";
+        header('Location: MessagesPage.php');
+        exit;
+    }
+
+    try {
+        // Check if recipient exists
+        $check_stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
+        $check_stmt->bind_param("s", $recipient_email);
+        $check_stmt->execute();
+        $result = $check_stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            $_SESSION['message_error'] = "Recipient does not exist.";
+            header('Location: MessagesPage.php');
+            exit;
+        }
+
+        // Insert message into database
+        $stmt = $conn->prepare("INSERT INTO Messages (sender_email, recipient_email, subject, message_body) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $sender_email, $recipient_email, $subject, $message_body);
+
+        if ($stmt->execute()) {
+            $_SESSION['message_success'] = "Message sent successfully!";
+        } else {
+            $_SESSION['message_error'] = "Error sending message: " . $stmt->error;
+        }
+
+        $stmt->close();
+        $check_stmt->close();
+        
+    } catch (Exception $e) {
+        $_SESSION['message_error'] = "Database error: " . $e->getMessage();
+    }
+    
+    header('Location: UserProfilePage.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,9 +113,14 @@
     <!-- Left: Image -->
     <div class="message-image"></div>
 
+     <div class="position-absolute top-0 end-0 mt-3 me-3">
+      <a href="./UserProfilePage.php" class="btn btn-light btn-sm">Back to Profile</a>
+      <a href="./ResponsesPage.php" class="btn btn-light btn-sm ms-2">Messages</a>
+    </div>
+
     <!-- Right: Messaging Form -->
     <div class="message-form-container">
-        <form class="message-form" method="post" action="send-message.php">
+        <form class="message-form" method="POST" action="MessagesPage.php">
             <h2 class="form-title">Send a Message</h2>
 
             <div class="mb-3">

@@ -2,7 +2,7 @@
     $host = "localhost";
     $user= "root";
     $password = "";
-    $database = "UniFormity_db";
+    $database = "UniFormity";
 
     $conn = mysqli_connect($host, $user, $password, $database);
 

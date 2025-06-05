@@ -123,6 +123,10 @@
 <body>
 
 <div class="half-page">
+
+  <div class="position-absolute top-0 end-0 mt-3 me-3">
+      <a href="./UserProfilePage.php" class="btn btn-light btn-sm">Back to Profile</a>
+  </div>
   <!-- Left: Background Image Only -->
   <div class="listing-image"></div>
 

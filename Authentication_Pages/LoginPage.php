@@ -1,7 +1,10 @@
 <?php
     session_start();
-
     require_once 'config.php';
+
+    // Admin credentials (for verification before database check)
+    $adminEmail = 'admin@gmail.com';
+    $adminPassword = 'Rainbow1!';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Sanitize and validate inputs
@@ -14,17 +17,36 @@
             exit;
         }
 
+        // Check for admin credentials first
+        if ($email === $adminEmail && $password === $adminPassword) {
+            // Verify against database
+            $stmt = $conn->prepare("SELECT * FROM admin WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-        // Prepare SQL statement to prevent SQL injection
+           
+
+            if ($result->num_rows > 0) {
+                $admin = $result->fetch_assoc();
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['admin_username'] = $admin['username'];
+                $_SESSION['admin_email'] = $admin['email'];
+                header("Location: ../AdminDashboard_Pages/AdminDashboardPage.php");
+                exit;
+                
+            }
+            // If database check fails, continue to regular user check
+        }
+
+        // Regular user authentication
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        // Check if user exists
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();
-            // Verify password
             if (password_verify($password, $user['password_hash'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['fullname'] = $user['fullname'];
@@ -51,11 +73,13 @@
     <title>Login | UniFormity</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <style>
+        
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
             overflow: hidden;
+            background-color: #EAEFEF;
         }
         .half-page {
             display: flex;
@@ -68,21 +92,44 @@
             flex: 1;
             height: 100%;
         }
+
         .login-form-container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 2rem;
+            background-color: #EAEFEF;
         }
+        
         .login-form {
             width: 100%;
             max-width: 400px;
+            background-color: #B8CFCE;
+            border: 1px solid #7F8CAA;
         }
         .form-title {
             font-weight: bold;
             margin-bottom: 1rem;
             text-align: center;
+            color: #333446;
+        }
+        .btn-primary {
+            background-color: #333446;
+            border-color: #333446;
+        }
+        .btn-primary:hover {
+            background-color: #7F8CAA;
+            border-color: #7F8CAA;
+        }
+        a {
+            color: #333446;
+        }
+        a:hover {
+            color: #7F8CAA;
+        }
+        .form-label {
+            color: #333446;
         }
     </style>
 </head>
