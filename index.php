@@ -270,7 +270,7 @@
         </div>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="" class="nav-link px-2 active">Home</a></li>
-            <li><a href="./BrowseListingsPage.php" class="nav-link px-2">Browse Listings</a></li>
+            <li><a href="./Genaral_Pages/BrowseListingsPage.php" class="nav-link px-2">Browse Listings</a></li>
         </ul>
         <div class="col-md-3 text-end">
             <a href="./ReviewCartPage.php" class="me-3 position-relative">
@@ -279,7 +279,7 @@
             
             <?php if(isset($_SESSION['user_id'])): ?>
                 <!-- Profile Icon -->
-                <a href="../UserDashboard_Pages/UserProfilePage.php" class="me-3">
+                <a href="./UserDashboard_Pages/UserProfilePage.php" class="me-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -288,10 +288,10 @@
             <?php else: ?>
                 <!-- Login/Register Buttons with consistent sizing -->
                 <div class="auth-buttons">
-                    <a href="../Authentication_Pages/LoginPage.php">
+                    <a href="./Authentication_Pages/LoginPage.php">
                         <button class="auth-btn btn-login">Login</button>
                     </a>
-                    <a href="../Authentication_Pages/RegisterPage.php">
+                    <a href="./Authentication_Pages/RegisterPage.php">
                         <button class="auth-btn btn-register">Register</button>
                     </a>
                 </div>
@@ -310,13 +310,13 @@
                     <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="2500">
-                                <img src="../Images/Textbooks.jpg" class="d-block w-100" alt="Textbooks">
+                                <img src="./Images/Textbooks.jpg" class="d-block w-100" alt="Textbooks">
                             </div>
                             <div class="carousel-item" data-bs-interval="2500">
-                                <img src="../Images/SchoolUniform.jpg" class="d-block w-100" alt="School Uniform">
+                                <img src="./Images/SchoolUniform3.jpg" class="d-block w-100" alt="School Uniform">
                             </div>
                             <div class="carousel-item" data-bs-interval="2500">
-                                <img src="../Images/Stationary.jpg" class="d-block w-100" alt="Stationary">
+                                <img src="./Images/Stationary.jpg" class="d-block w-100" alt="Stationary">
                             </div>
                         </div>
                     </div>
@@ -328,8 +328,8 @@
                 <h1 class="hero-title pb-2">From One Desk to Another</h1>
                 <p class="lead hero-description">Connecting families through quality, second-hand school essentials. Buy, sell, and give school uniforms and materials a second chance. Affordable, sustainable, and just a few clicks away.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start hero-buttons">
-                    <a href="./BrowseListingsPage.php" class="btn btn-primary btn-lg px-4 me-md-2"> Purchase Item</a>
-                    <a href="<?= isset($_SESSION['user_id']) ? '../UserDashboard_Pages/AddNewListingPage.php' : '../Authentication_Pages/LoginPage.php' ?>" class="btn btn-primary btn-lg px-4 me-md-2">Sell Item</a>
+                    <a href="./Genaral_Pages/BrowseListingsPage.php" class="btn btn-primary btn-lg px-4 me-md-2"> Purchase Item</a>
+                    <a href="<?= isset($_SESSION['user_id']) ? './UserDashboard_Pages/AddNewListingPage.php' : './Authentication_Pages/LoginPage.php' ?>" class="btn btn-primary btn-lg px-4 me-md-2">Sell Item</a>
                 </div>
             </div>
         </div>
@@ -342,7 +342,7 @@
 
     <div class="row row-cols-1 row-cols-lg-3 g-4 py-5">
         <div class="col">
-            <div class="card-cover shadow-lg" style="background-image: url('../Images/Saving.jpg');">
+            <div class="card-cover shadow-lg" style="background-image: url('./Images/Saving.jpg');">
                 <div class="card-text-container">
                     <h3>Save more while still providing the best for your child.</h3>
                 </div>
@@ -350,7 +350,7 @@
         </div>
 
         <div class="col">
-            <div class="card-cover shadow-lg" style="background-image: url('../Images/GoingGreen.jpg');">
+            <div class="card-cover shadow-lg" style="background-image: url('./Images/GoingGreen.jpg');">
                 <div class="card-text-container">
                     <h3>UniFormity promotes conscious consumption for a cleaner, greener future.</h3>
                 </div>
@@ -358,7 +358,7 @@
         </div>
 
         <div class="col">
-            <div class="card-cover shadow-lg" style="background-image: url('../Images/family.jpg');">
+            <div class="card-cover shadow-lg" style="background-image: url('./Images/family.jpg');">
                 <div class="card-text-container">
                     <h3>Our platform empowers families to support each other through secure, local C2C exchanges.</h3>
                 </div>
@@ -384,7 +384,7 @@
             </p>
         </div>
         <div class="col-lg-6">
-            <img src="../Images/Community.jpg" class="img-fluid rounded-4 shadow-sm" alt="About UniFormity" style="max-height: 520px; object-fit: cover; width: 100%;">
+            <img src="./Images/Community.jpg" class="img-fluid rounded-4 shadow-sm" alt="About UniFormity" style="max-height: 520px; object-fit: cover; width: 100%;">
         </div>
     </div>
 </section>
@@ -443,7 +443,7 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../Images/SchoolUniform.jpg" class="d-block w-100" alt="School Uniform">
+                        <img src="./Images/SchoolUniform.jpg" class="d-block w-100" alt="School Uniform">
                         <div class="carousel-caption d-none d-md-block rounded-3 p-3">
                             <h5>School Uniform</h5>
                             <p>Gently-used uniforms available in various sizes and colors.</p>
@@ -451,7 +451,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img src="../Images/Textbook.jpg" class="d-block w-100" alt="Textbooks">
+                        <img src="./Images/Textbooks.jpg" class="d-block w-100" alt="Textbooks">
                         <div class="carousel-caption d-none d-md-block rounded-3 p-3">
                             <h5>Textbooks</h5>
                             <p>Affordable academic resources across various grades and subjects.</p>
@@ -459,7 +459,7 @@
                     </div>
 
                     <div class="carousel-item">
-                        <img src="../Images/Stationary.jpg" class="d-block w-100" alt="Stationery">
+                        <img src="./Images/Stationary.jpg" class="d-block w-100" alt="Stationery">
                         <div class="carousel-caption d-none d-md-block rounded-3 p-3">
                             <h5>Stationery Sets</h5>
                             <p>All the essentials for your child's classroom success.</p>
@@ -486,16 +486,18 @@
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
-            <li class="nav-item"><a href="./BrowseListingsPage.php" class="nav-link px-2">Listings</a></li>
-            <li class="nav-item"><a href="./FAQPage.html" class="nav-link px-2">FAQs</a></li>
-            <li class="nav-item"><a href="./ContactUsPage.php" class="nav-link px-2">Contact Us</a></li>
+            <li class="nav-item"><a href="./Genaral_Pages/BrowseListingsPage.php" class="nav-link px-2">Listings</a></li>
+            <li class="nav-item"><a href="./Genaral_Pages/FAQPage.html" class="nav-link px-2">FAQs</a></li>
+            <li class="nav-item"><a href="./Genaral_Pages/ContactUsPage.php" class="nav-link px-2">Contact Us</a></li>
         </ul>
         <p class="text-center">© 2025 UniFormity, Inc</p>
     </footer>
 </div>
 
 <!-- Bootstrap Bundle JS (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -131,6 +131,29 @@
         .form-label {
             color: #333446;
         }
+
+        @media (max-width: 1024px) {
+        .listing-image {
+            display: none !important;
+        }
+        .listing-form-container {
+            flex: 1 1 100%;
+            max-width: 100vw;
+            padding: 2rem 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .half-page {
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        }
+        @media (max-width: 768px) {
+        .listing-form {
+            max-width: 100vw;
+            padding: 1rem;
+        }
+        }
     </style>
 </head>
 <body>

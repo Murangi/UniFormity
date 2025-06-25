@@ -236,7 +236,7 @@
             margin-bottom: 20px;
         }
         
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             .product-image-container {
                 height: 400px;
             }
@@ -258,10 +258,10 @@
     </style>
 </head>
 <body>
-    <!-- Enhanced Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="LandingPage.php">
+            <a class="navbar-brand" href="../index.php">
                 <div class="brand-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
@@ -270,21 +270,9 @@
             
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="LandingPage.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="BrowseListingsPage.php">Browse Listings</a>
+                    <a class="nav-link" href="../index.php">Home</a>
                 </li>
             </ul>
-            
-            <div class="d-flex align-items-center">
-                <a href="../Authentication_Pages/LoginPage.php" class="nav-btn btn-login me-2">
-                    <i class="fas fa-sign-in-alt me-2"></i>Login
-                </a>
-                <a href="../Authentication_Pages/RegisterPage.php" class="nav-btn btn-signup">
-                    <i class="fas fa-user-plus me-2"></i>Sign-up
-                </a>
-            </div>
         </div>
     </nav>
 

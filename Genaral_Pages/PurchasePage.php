@@ -147,6 +147,53 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             margin-top: 1rem;
             border: 1px solid #b6d4fe;
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            .purchase-card {
+                max-width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                margin: 0;
+            }
+            .purchase-header {
+                padding: 1.2rem 0.5rem;
+                font-size: 1rem;
+            }
+            .item-image {
+                width: 40px;
+                height: 40px;
+                margin-right: 6px;
+            }
+            .summary-box {
+                padding: 0.5rem;
+                font-size: 0.98rem;
+            }
+            .btn-purchase {
+                font-size: 1rem;
+                padding: 0.7rem;
+            }
+            .list-group-item {
+                font-size: 0.98rem;
+                padding: 0.5rem 0.5rem;
+            }
+            h5, .form-label {
+                font-size: 1rem;
+            }
+            .p-4 {
+                padding: 1rem !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .purchase-header h2 {
+                font-size: 1.2rem;
+            }
+            .purchase-header p {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>

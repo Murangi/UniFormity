@@ -10,22 +10,22 @@ if (!isset($_SESSION['email'])) {
 
 // Validate form data
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $sender_email = $_SESSION['email'];
-    $recipient_email = $_POST['recipient'];
+    $sender_fullname = $_SESSION['fullname'];
+    $recipient_fullname = trim($_POST['recipient']);
     $subject = $_POST['subject'];
     $message_body = $_POST['message'];
 
     // Basic validation
-    if (empty($recipient_email) || empty($subject) || empty($message_body)) {
+    if (empty($recipient_fullname) || empty($subject) || empty($message_body)) {
         $_SESSION['message_error'] = "All fields are required.";
         header('Location: MessagesPage.php');
         exit;
     }
 
     try {
-        // Check if recipient exists
-        $check_stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
-        $check_stmt->bind_param("s", $recipient_email);
+        // Case-insensitive recipient lookup
+        $check_stmt = $conn->prepare("SELECT fullname FROM users WHERE LOWER(fullname) = LOWER(?)");
+        $check_stmt->bind_param("s", $recipient_fullname);
         $check_stmt->execute();
         $result = $check_stmt->get_result();
 
@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Insert message into database
-        $stmt = $conn->prepare("INSERT INTO Messages (sender_email, recipient_email, subject, message_body) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $sender_email, $recipient_email, $subject, $message_body);
+        // Insert message into database (use correct table name)
+        $stmt = $conn->prepare("INSERT INTO messages (sender_fullname, recipient_fullname, subject, message_body) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $sender_fullname, $recipient_fullname, $subject, $message_body);
 
         if ($stmt->execute()) {
             $_SESSION['message_success'] = "Message sent successfully!";
@@ -47,11 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt->close();
         $check_stmt->close();
-        
+
     } catch (Exception $e) {
         $_SESSION['message_error'] = "Database error: " . $e->getMessage();
     }
-    
+
     header('Location: UserProfilePage.php');
     exit;
 }
@@ -105,6 +105,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 1.5rem;
             text-align: center;
         }
+        @media (max-width: 1024px) {
+        .listing-image {
+            display: none !important;
+        }
+        .listing-form-container {
+            flex: 1 1 100%;
+            max-width: 100vw;
+            padding: 2rem 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .half-page {
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        }
+        @media (max-width: 768px) {
+        .listing-form {
+            max-width: 100vw;
+            padding: 1rem;
+        }
+        }
     </style>
 </head>
 <body>
@@ -124,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2 class="form-title">Send a Message</h2>
 
             <div class="mb-3">
-                <label for="recipient" class="form-label">To (Recipient Username or Email)</label>
+                <label for="recipient" class="form-label">To (Recipient Username)</label>
                 <input type="text" class="form-control" id="recipient" name="recipient" required>
             </div>
 

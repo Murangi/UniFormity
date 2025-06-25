@@ -110,7 +110,7 @@
                 <div class="card user-card p-3">
                     <div class="card-body">
                         <div class="d-flex">
-                            <img src="../Images/user-avatar.jpg" alt="User Avatar">
+                            <img src="../Images/Avatar.jpg" alt="User Avatar">
                             <div class="user-info">
                                 <div class="user-details">
                                     <div class="detail-item">

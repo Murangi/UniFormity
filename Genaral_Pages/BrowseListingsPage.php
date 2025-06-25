@@ -31,16 +31,46 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
         }
-        
+
+              /* Enhanced Navigation */
         .navbar {
-            background-color: var(--primary-dark);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2a2c3d 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 15px 0;
         }
         
         .navbar-brand {
             font-weight: 700;
             color: var(--text-light) !important;
             letter-spacing: 1px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .brand-icon {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            padding: 8px 15px !important;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .section-title {
@@ -179,17 +209,22 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-graduation-cap me-2"></i>UniFormity
+            <a class="navbar-brand" href="../index.php">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                UniFormity
             </a>
-            <div class="d-flex">
-                <a href="./LandingPage.php" class="btn btn-sm btn-outline-light">
-                    Home
-                </a>
-            </div>
+            
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php">Home</a>
+                </li>
+            </ul>
         </div>
     </nav>
 

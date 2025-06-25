@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (!isset($_SESSION['fullname'], $_SESSION['email'], $_SESSION['time_date'])) {
-      header("Location: ../Authentication_Pages/LoginPage.php");
+      header("Location: ../Authentication_Pages/index.php");
       exit;
   }
   $firstname = substr($_SESSION['fullname'], 0, strpos($_SESSION['fullname'], ' '));
@@ -11,7 +11,7 @@
   if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     session_unset();
     session_destroy();
-    header("Location: ../Genaral_Pages/LandingPage.php");
+    header("Location: ../index.php");
     exit;
   }
 ?>
@@ -39,8 +39,7 @@
 
     .page-header {
       padding: 3rem 1rem;
-      background: linear-gradient(rgba(51, 52, 70, 0.85), rgba(51, 52, 70, 0.9)), 
-                  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23333446"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%237F8CAA" stroke-width="1" stroke-opacity="0.2"/></svg>');
+      background-image: url('../Images/UserProfile.jpg');  
       background-size: cover;
       background-position: center;
       color: white;
@@ -56,8 +55,11 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--slate-blue), var(--light-teal));
+      /* background: linear-gradient(90deg, var(--slate-blue), var(--light-teal)); */
+      filter: blur(10px); /* Adjust blur intensity */
+      opacity: 0.7; /* Adjust transparency */
     }
+    
 
     .page-header h1 {
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -213,6 +215,9 @@
     .info-value {
       color: var(--slate-blue);
       flex: 1;
+      word-break: break-all;         /* Break long words (like emails) */
+      overflow-wrap: anywhere;       /* Allow breaking anywhere if needed */
+      min-width: 0;                  /* Prevent flex overflow */
     }
 
     /* Action cards grid */
@@ -233,39 +238,27 @@
       }
     }
 
-    /* Decorative elements */
-    .blob {
-      position: absolute;
-      opacity: 0.05;
-      z-index: 0;
-      border-radius: 50%;
-    }
-    
-    .blob-1 {
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, var(--slate-blue), transparent);
-      top: -50px;
-      right: -50px;
-    }
-    
-    .blob-2 {
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, var(--light-teal), transparent);
-      bottom: -30px;
-      left: -30px;
-    }
+    @media (max-width: 576px) {
+  .page-header .position-absolute.top-0.end-0 {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 1rem 0;
+    gap: 0.5rem;
+  }
+  .page-header .avatar {
+    margin-top: 0.5rem;
+  }
+}
   </style>
 </head>
 <body>
 
   <div class="page-header position-relative">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
     
     <div class="position-absolute top-0 end-0 mt-3 me-3 d-flex gap-2">
-      <a href="../Genaral_Pages/LandingPage.php" class="btn btn-light btn-sm">
+      <a href="../index.php" class="btn btn-light btn-sm">
         <i class="bi bi-house-door"></i> Home
       </a>
       <a href="../Genaral_Pages/BrowseListingsPage.php" class="btn btn-light btn-sm">
@@ -273,7 +266,7 @@
       </a>
     </div>
     
-    <img src="../Images/MaleAvatar.jpg" alt="User Avatar" class="avatar" />
+    <img src="../Images/Avatar.jpg" alt="User Avatar" class="avatar" />
     <h1><?php echo htmlspecialchars($firstname); ?></h1>
     <p class="lead"><?php echo htmlspecialchars($_SESSION['email']); ?></p>
 

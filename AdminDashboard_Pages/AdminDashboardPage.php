@@ -167,7 +167,7 @@
 </div>
 
 <div class="position-absolute top-0 end-0 mt-3 me-3">
-    <a href="../Genaral_Pages/LandingPage.php" class="btn btn-light btn-sm">Home</a>
+    <a href="../index.php" class="btn btn-light btn-sm">Home</a>
 </div>
 
 <div class="container dashboard-container">

@@ -79,11 +79,46 @@
             font-weight: bold;
             font-size: 1.2rem;
         }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+            .card {
+                padding: 1rem 0.5rem !important;
+            }
+            .product-img {
+                width: 40px;
+                height: 40px;
+            }
+            .total-price {
+                font-size: 1rem;
+            }
+            .d-flex.justify-content-between.align-items-center.mt-4 {
+                flex-direction: column;
+                align-items: stretch !important;
+                gap: 1rem;
+            }
+            .btn-lg {
+                width: 100%;
+                font-size: 1rem;
+                padding: 0.75rem 0;
+            }
+            .table-responsive {
+                border-radius: 0.5rem;
+                overflow-x: auto;
+            }
+            table.table {
+                min-width: 600px;
+            }
+        }
     </style>
 </head>
 <body class="bg-light">
 
+    
+
 <div class="container my-5">
+   
     <h2 class="mb-4 text-center">Review Your Cart</h2>
 
     <div class="card shadow-sm p-4">

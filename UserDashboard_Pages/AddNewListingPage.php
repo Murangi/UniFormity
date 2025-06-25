@@ -58,6 +58,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
   <style>
+    :root {
+  --primary-dark: #333446;
+  --primary-medium: #7F8CAA;
+  --primary-light: #B8CFCE;
+  --background-light: #EAEFEF;
+  --accent: #5A6F8A;
+}
+
     html, body {
       height: 100%;
       margin: 0;
@@ -107,17 +115,78 @@
       width: 100%;
     }
 
-    @media (max-width: 768px) {
-      .half-page {
-        flex-direction: column;
-      }
+    .back-profile-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 0.5rem 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(90, 111, 138, 0.08);
+    }
+    .back-profile-btn:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .back-profile-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 2rem 0 2rem;
+  box-sizing: border-box;
+  z-index: 2;
+  background: transparent;
+}
+
+@media (max-width: 1024px) {
+  .back-profile-btn-container {
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .back-profile-btn-container {
+    padding: 1rem 0 0 0;
+  }
+  .back-profile-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+    @media (max-width: 1024px) {
       .listing-image {
-        height: 200px;
+        display: none !important;
       }
       .listing-form-container {
+        flex: 1 1 100%;
+        max-width: 100vw;
+        padding: 2rem 1rem;
         align-items: center;
+        justify-content: center;
+      }
+      .half-page {
+        flex-direction: column;
+        min-height: 100vh;
       }
     }
+    @media (max-width: 768px) {
+      .listing-form {
+        max-width: 100vw;
+        padding: 1rem;
+      }
+    }
+    @media (max-width: 576px) {
+  .back-profile-btn {
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
   </style>
 </head>
 <body>
@@ -125,7 +194,9 @@
 <div class="half-page">
 
   <div class="position-absolute top-0 end-0 mt-3 me-3">
-      <a href="./UserProfilePage.php" class="btn btn-light btn-sm">Back to Profile</a>
+    <div class="back-profile-btn-container">
+      <a href="./UserProfilePage.php" class="back-profile-btn mb-3 d-inline-block">Back to Profile</a>
+    </div>
   </div>
   <!-- Left: Background Image Only -->
   <div class="listing-image"></div>

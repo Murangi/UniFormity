@@ -4,7 +4,7 @@ require_once '../Authentication_Pages/config.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Authentication_Pages/LoginPage.php");
+    header("Location: ../Authentication_Pages/index.php");
     exit;
 }
 
@@ -55,6 +55,28 @@ try {
         .history-container { flex: 1; overflow-y: auto; padding: 2rem; background-color: #f5f7fa; }
         .history-title { font-weight: bold; text-align: center; margin-bottom: 1.5rem; }
         .history-card { margin-bottom: 1rem; box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); }
+        @media (max-width: 1024px) {
+        .listing-image {
+            display: none !important;
+        }
+        .listing-form-container {
+            flex: 1 1 100%;
+            max-width: 100vw;
+            padding: 2rem 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .half-page {
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        }
+        @media (max-width: 768px) {
+        .listing-form {
+            max-width: 100vw;
+            padding: 1rem;
+        }
+        }
     </style>
 </head>
 <body>

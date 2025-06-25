@@ -3,7 +3,7 @@ session_start();
 require_once '../Authentication_Pages/config.php'; // Ensure this contains your DB connection
 
 if (!isset($_SESSION['fullname'], $_SESSION['email'])) {
-    header("Location: ../Authentication_Pages/LoginPage.php");
+    header("Location: ../Authentication_Pages/index.php");
     exit;
 }
 

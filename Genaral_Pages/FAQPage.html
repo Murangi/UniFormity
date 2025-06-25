@@ -1,135 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQs | UniFormity</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
-        body {
-            background-color: #EAEFEF;
-        }
+      body {
+        background-color: #eaefef;
+      }
 
-        .faq-header {
-            padding: 2rem;
-            background-image: url('../Images/FAQPageImage.jpg'); /* Update to your actual path */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            background-color: #333446;
-        }
+      .faq-header {
+        padding: 2rem;
+        background-image: url("../Images/FAQPageImage.jpg"); /* Update to your actual path */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        background-color: #333446;
+      }
 
-        .faq-header h2 {
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-        }
+      .faq-header h2 {
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      }
 
-        .faq-container {
-            max-width: 900px;
-            margin: 2rem auto;
-        }
+      .faq-container {
+        max-width: 900px;
+        margin: 2rem auto;
+      }
 
-        .accordion-button::after {
-            display: none !important; /* Remove Bootstrap default arrow */
-        }
+      .accordion-button::after {
+        display: none !important; /* Remove Bootstrap default arrow */
+      }
 
-        .accordion-button {
-            font-size: 1.2rem;
-            padding: 1.2rem 1.5rem;
-            background-color: #B8CFCE;
-            color: #333446;
-        }
+      .accordion-button {
+        font-size: 1.2rem;
+        padding: 1.2rem 1.5rem;
+        background-color: #b8cfce;
+        color: #333446;
+      }
 
-        .accordion-button:not(.collapsed) {
-            background-color: #7F8CAA;
-            color: white;
-        }
+      .accordion-button:not(.collapsed) {
+        background-color: #7f8caa;
+        color: white;
+      }
 
-        .accordion-body {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            background-color: #EAEFEF;
-        }
+      .accordion-body {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        background-color: #eaefef;
+      }
 
-        .accordion-item {
-            border: 1px solid #7F8CAA;
-        }
+      .accordion-item {
+        border: 1px solid #7f8caa;
+      }
 
-        .text-primary {
-            color: #333446 !important;
-        }
+      .text-primary {
+        color: #333446 !important;
+      }
     </style>
+  </head>
+  <body>
+    <div class="faq-header">
+      <h2>Frequently Asked Questions</h2>
+      <p class="mb-0">All you need to know about UniFormity</p>
+    </div>
 
-</head>
-<body>
-
-<div class="faq-header">
-    <h2>Frequently Asked Questions</h2>
-    <p class="mb-0">All you need to know about UniFormity</p>
-</div>
-
-<div class="container faq-container">
-    <div class="accordion shadow-sm" id="faqAccordion">
+    <div class="container faq-container">
+      <div class="accordion shadow-sm" id="faqAccordion">
         <!-- FAQ 1 -->
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                    <i class="fa-solid fa-circle-question me-2 text-primary"></i> What is UniFormity?
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    UniFormity is a platform that helps you buy and sell second-hand school items with ease and trust.
-                </div>
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+            >
+              <i class="fa-solid fa-circle-question me-2 text-primary"></i> What
+              is UniFormity?
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              UniFormity is a platform that helps you buy and sell second-hand
+              school items with ease and trust.
             </div>
+          </div>
         </div>
 
         <!-- FAQ 2 -->
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                    <i class="fa-solid fa-circle-question me-2 text-primary"></i> How do I list an item for sale?
-                </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Sign up for an account, click on "Sell," upload your item details and photo, then submit your listing.
-                </div>
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+            >
+              <i class="fa-solid fa-circle-question me-2 text-primary"></i> How
+              do I list an item for sale?
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Sign up for an account, click on "Sell," upload your item details
+              and photo, then submit your listing.
             </div>
+          </div>
         </div>
 
         <!-- FAQ 3 -->
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                    <i class="fa-solid fa-circle-question me-2 text-primary"></i> Is it free to use UniFormity?
-                </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Yes! It's completely free to browse, buy, and sell items on UniFormity.
-                </div>
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+            >
+              <i class="fa-solid fa-circle-question me-2 text-primary"></i> Is
+              it free to use UniFormity?
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Yes! It's completely free to browse, buy, and sell items on
+              UniFormity.
             </div>
+          </div>
         </div>
 
         <!-- FAQ 4 -->
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                    <i class="fa-solid fa-circle-question me-2 text-primary"></i> How do I contact the seller?
-                </button>
-            </h2>
-            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body">
-                    Click on the item, and you'll see the seller's contact information or messaging option.
-                </div>
+          <h2 class="accordion-header" id="headingFour">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+            >
+              <i class="fa-solid fa-circle-question me-2 text-primary"></i> How
+              do I contact the seller?
+            </button>
+          </h2>
+          <div
+            id="collapseFour"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Click on the item, and you'll see the seller's contact information
+              or messaging option.
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

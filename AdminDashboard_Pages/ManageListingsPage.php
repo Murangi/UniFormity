@@ -37,12 +37,27 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         
+        .listing-image-container {
+            width: 180px;
+            min-width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f4f6fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-right: 20px;
+        }
+
         .listing-image {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 1rem;
+            border-radius: 10px;
+            background: #eaeaea;
+            display: block;
         }
 
         .action-buttons button {
@@ -57,6 +72,7 @@
         .listing-details {
             display: flex;
             gap: 20px;
+            align-items: flex-start;
         }
         
         .listing-text {
@@ -66,6 +82,14 @@
         @media (max-width: 768px) {
             .listing-details {
                 flex-direction: column;
+                align-items: stretch;
+            }
+            .listing-image-container {
+                width: 100%;
+                min-width: 0;
+                height: 200px;
+                margin-right: 0;
+                margin-bottom: 1rem;
             }
         }
     </style>
@@ -104,7 +128,7 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Use the image_path from listings table or a placeholder
-                $imagePath = !empty($row['image_path']) ? '../' . $row['image_path'] : '../Images/placeholder-image.jpg';
+                $imagePath = !empty($row['image_path']) ? '/' . ltrim($row['image_path'], '/') : '/Images/placeholder-image.jpg';
                 
                 // Echo each listing in card format with user's fullname
                 echo '

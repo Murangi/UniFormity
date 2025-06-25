@@ -42,6 +42,30 @@
             margin-bottom: 1rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        @media (max-width: 1024px) {
+            .listing-image {
+                display: none !important;
+            }
+            .listing-form-container {
+                flex: 1 1 100%;
+                max-width: 100vw;
+                padding: 2rem 1rem;
+                align-items: center;
+                justify-content: center;
+            }
+            .half-page {
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            }
+            @media (max-width: 768px) {
+            .listing-form {
+                max-width: 100vw;
+                padding: 1rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -85,6 +109,10 @@
                             <h5 class="card-title">' . htmlspecialchars($row['title']) . '</h5>
                             <p class="card-text">' . htmlspecialchars($row['description']) . '</p>
                             <p class="text-muted">Price: R' . htmlspecialchars($row['price']) . '</p>
+                            <form method="GET" action="UpdateListingPage.php" style="display:inline;">
+                                <input type="hidden" name="listing_id" value="' . intval($row['Product_id']) . '">
+                                <button type="submit" class="btn btn-sm btn-outline-primary me-2">Update</button>
+                            </form>
                             <form method="POST" action="MyListingsPage.php" onsubmit="return confirm(\'Are you sure you want to delete this listing?\');" style="display:inline;">
                                 <input type="hidden" name="listing_id" value="' . intval($row['Product_id']) . '">
                                 <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
@@ -97,6 +125,7 @@
             }
 
             $stmt->close();
+
         ?>
     </div>
 </div>

@@ -123,9 +123,9 @@ $admin_message = "Your order is being processed. We'll notify you once it ships.
             </div>
 
             <div class="text-center mt-5">
-                <a href="./LandingPage.php" class="btn btn-success btn-lg px-5">Back to Home</a>
+                <a href="../index.php" class="btn btn-success btn-lg px-5">Back to Home</a>
                 <div class="mt-3">
-                    <a href="MessagesPage.php" class="text-decoration-none">
+                    <a href="../UserDashboard_Pages/ResponsesPage.php" class="text-decoration-none">
                         📩 View Messages
                     </a>
                 </div>
